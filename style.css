@@ -7,14 +7,6 @@
    body{
       margin: 0;
    }
-   .background {
-      display: flex;
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      background-color: #000;
-     
-   }
 
    #navbar-container{
       position: fixed;
@@ -34,8 +26,16 @@
       height: auto;
       margin-top: 5px;
       margin-left: 40px;
+      animation: flip;
+      animation-duration: 4s;
       
    }
+
+   /* .logo:hover{
+      cursor: pointer;
+      animation: bounce;
+      animation-duration: 2s;
+   } */
 
    #nav-links{
       margin-right: 40px;
@@ -44,6 +44,7 @@
       margin-top: 20px;
       font-weight: bold;
       justify-content: space-between;
+      
    }
    #nav-links a{
       position:relative;
@@ -52,6 +53,7 @@
       text-decoration: none;
       color: #fff;
       padding-bottom: 2px;
+      
    }
 
    #nav-links a::after{
@@ -73,9 +75,18 @@
       transition-duration: 0.4s;
    }
 
+   .c-item{
+      height: 750px;
+   }
+   .c-img{
+      height: 100%;
+      /* object-fit: cover; */
+      filter: brightness(0.7);
+   }
+
    .footer{
       position: absolute;
-      bottom: 100px;
+      bottom: 30px;
       left: 90px;
       max-width: 560px;
       
@@ -87,6 +98,8 @@
       font-size: 27px;
       margin-bottom: 10px;
       font-weight: 150;
+      animation: flash;
+      animation-duration: 3s;
       
    }
 
@@ -99,6 +112,24 @@
       margin-top: 30px;
       font-size: 48px;
       line-height: 15px
+   }
+
+   .change_content:after{
+      content: '';
+      font: 48px / 48px D-DIN-Bold, Arial, Verdana, sans-serif;
+      animation: slidein 12s infinite linear;
+      color: #ffffff;
+      text-shadow: 1px 1px 2px black, 0 0 25px rgb(240, 145, 44), 0 0 5px rgb(104, 72, 34);
+   }
+        
+   @keyframes slidein{
+      0%{content:"Maxar 1";}
+      20%{content:"Starlink";}
+      35%{content:"Falcon 1";}
+      60%{content:"Starship";}
+      80%{content:"Dragon";}
+      100%{content:"Crew-6";}
+
    }
    
    .btn-animate{
@@ -116,9 +147,11 @@
       overflow: hidden;
       transition: 0.5s all ease;
    }
-
-   .btn-animate:hover span{
-      color: #ede6e6;
+   .btn-animate:before{
+      content: '';
+      position: absolute;
+      transform: translateX(-50%) skewX(325deg);
+      
    }
    
    .btn-animate:hover{
@@ -126,5 +159,9 @@
       background: rgb(0, 0, 0);
       border-color: #000000;
       cursor: pointer;
+      letter-spacing: 0.25em;
+      box-shadow: 0 0 35px var(#3e3e3e91);
+      animation: swing;
+      animation-duration: 2s;
    }
    
